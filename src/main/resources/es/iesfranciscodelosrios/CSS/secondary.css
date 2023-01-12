@@ -1,0 +1,9 @@
+.principalpane {
+    -fx-background-color: #276678;
+}
+.backpane {
+    -fx-background-color: #1687A7;
+}
+.contentpane {
+    -fx-background-color: #D3E0EA;
+}
