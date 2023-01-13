@@ -1,6 +1,7 @@
 package es.iesfranciscodelosrios.currency;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Contador extends Thread{
     private int OneCent;
@@ -11,14 +12,17 @@ public class Contador extends Thread{
     private int FiftyCent;
     private int OneEuro;
     private int TwoEuro;
+    private int cuentaParcial;
     private Productor pro;
     private ContadorTotal contTotal;
     private ArrayList<Integer> Monedas;
+    private Object cand;
 
-    private Contador(Productor p, ContadorTotal ct){
+    private Contador(Productor p, ContadorTotal ct, Object candado){
         this.pro=p;
         this.contTotal=ct;
         Monedas= new ArrayList<>();
+        this.cand=candado;
     }
     
     public int getOneCent() {
@@ -96,7 +100,19 @@ public class Contador extends Thread{
 
     @Override
     public void run() {
-        CuentaMoneda(pro.cogerMoneda());
-        contTotal.incrementaDinero(Monedas);
+        pro.start();
+        try {
+            Random randomGenerator=new Random();
+            while(pro.getnMonedas()>0){
+                int tipo =randomGenerator.nextInt(1000) + 500;
+                cand.wait();
+                CuentaMoneda(pro.getBuffer());
+                cuentaParcial= pro.getBuffer();
+                Thread.sleep(tipo);
+                cand.notifyAll();
+            }
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

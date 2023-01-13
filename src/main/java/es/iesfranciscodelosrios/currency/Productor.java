@@ -4,13 +4,30 @@ import java.util.Random;
 
 public class Productor extends Thread{
     private int nMonedas;
+    private Object cand;
+    private int buffer;
 
-    public Productor(){
+    public Productor(Object candado){
         this.nMonedas=100;
+        this.cand=candado;
     }
 
-    public Productor(int NumMonedas){
+    public Productor(int NumMonedas,Object candado){
         this.nMonedas=NumMonedas;
+        this.cand=candado;
+    }
+
+
+    public int getnMonedas() {
+        return nMonedas;
+    }
+
+    public int getBuffer() {
+        return buffer;
+    }
+
+    public void setBuffer(int buffer) {
+        this.buffer = buffer;
     }
 
     public synchronized int cogerMoneda(){
@@ -39,5 +56,21 @@ public class Productor extends Thread{
             return moneda;
         }
         return 0;
+    }
+
+    @Override
+    public void run() {
+        try {
+            Random randomGenerator=new Random();
+            while(nMonedas>0){
+                int tipo =randomGenerator.nextInt(1000) + 500;
+                buffer=cogerMoneda();
+                Thread.sleep(tipo);
+                cand.notifyAll();
+                cand.wait();
+            }
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
