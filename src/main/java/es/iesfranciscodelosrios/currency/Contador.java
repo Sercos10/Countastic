@@ -18,10 +18,18 @@ public class Contador extends Thread{
     private ArrayList<Integer> Monedas;
     private Object cand;
 
-    private Contador(Productor p, ContadorTotal ct, Object candado){
+    public Contador(Productor p, ContadorTotal ct, Object candado){
         this.pro=p;
         this.contTotal=ct;
-        Monedas= new ArrayList<>();
+        Monedas= new ArrayList<>(8);
+        Monedas.add(0);
+        Monedas.add(0);
+        Monedas.add(0);
+        Monedas.add(0);
+        Monedas.add(0);
+        Monedas.add(0);
+        Monedas.add(0);
+        Monedas.add(0);
         this.cand=candado;
     }
     
@@ -104,12 +112,18 @@ public class Contador extends Thread{
         try {
             Random randomGenerator=new Random();
             while(pro.getnMonedas()>0){
+                synchronized (cand){
+                    System.out.println("Consumidor: a mimir");
+                    cand.wait();
+                }
                 int tipo =randomGenerator.nextInt(1000) + 500;
-                cand.wait();
+                System.out.println("Consumidor: Coge moneda");
                 CuentaMoneda(pro.getBuffer());
                 cuentaParcial= pro.getBuffer();
-                Thread.sleep(tipo);
-                cand.notifyAll();
+                synchronized (cand){
+                    System.out.println("Consumidor: notificando");
+                    cand.notifyAll();
+                }
             }
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
