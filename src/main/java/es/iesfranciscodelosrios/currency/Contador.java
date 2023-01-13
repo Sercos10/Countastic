@@ -75,7 +75,7 @@ public class Contador extends Thread{
             		Monedas.add(0, OneCent++);
             		break;
             case 2: 
-            		Monedas.add(1, TenCent++);
+            		Monedas.add(1, TwoCent++);
             		break;
             case 5: 
             		Monedas.add(2, FiveCent++);
