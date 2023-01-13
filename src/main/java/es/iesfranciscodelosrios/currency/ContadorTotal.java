@@ -5,32 +5,31 @@ import java.util.ArrayList;
 public class ContadorTotal {
     private int TotalDine;
 
-    public synchronized void IncrementarDine(ArrayList<Integer> Monedas){
-        ArrayList<Integer> TipoMoneda= new ArrayList<>();
+    public synchronized void incrementaDinero(ArrayList<Integer> monedas){
 
-        if (Monedas.get(0)>0){
-            TipoMoneda.add(0,Monedas.get(0));
+        if (monedas.get(0) > 0){
+            TotalDine=TotalDine+ monedas.get(0) * 1;
         }
-        if (Monedas.get(1)>0){
-            TipoMoneda.add(1,Monedas.get(1));
+        if (monedas.get(1) > 0){
+            TotalDine=TotalDine+ monedas.get(11) * 2;
         }
-        if (Monedas.get(2)>0){
-            TipoMoneda.add(2,Monedas.get(2));
+        if (monedas.get(2) > 0){
+            TotalDine=TotalDine+ monedas.get(2) * 5;
         }
-        if (Monedas.get(3)>0){
-            TipoMoneda.add(3,Monedas.get(3));
+        if (monedas.get(3) > 0){
+            TotalDine=TotalDine+ monedas.get(3) * 10;
         }
-        if (Monedas.get(4)>0){
-            TipoMoneda.add(4,Monedas.get(4));
+        if (monedas.get(4) > 0){
+            TotalDine=TotalDine+ monedas.get(4) * 20;
         }
-        if (Monedas.get(5)>1){
-            TipoMoneda.add(5,Monedas.get(5));
+        if (monedas.get(5) > 1){
+            TotalDine=TotalDine+ monedas.get(5) * 50;
         }
-        if (Monedas.get(6)>1){
-            TipoMoneda.add(6,Monedas.get(6));
+        if (monedas.get(6) > 1){
+            TotalDine=TotalDine+ monedas.get(6) * 100;
         }
-        if (Monedas.get(7)>1){
-            TipoMoneda.add(7,Monedas.get(7));
+        if (monedas.get(7) > 1){
+            TotalDine=TotalDine+ monedas.get(7) * 200;
         }
     }
 }

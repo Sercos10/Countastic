@@ -5,16 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="458df54e-8c84-4b3a-80bf-1e37342f7c9d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nbactions.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/es/iesfranciscodelosrios/App.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/es/iesfranciscodelosrios/SecondaryController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/es/iesfranciscodelosrios/secondary.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/iesfranciscodelosrios/currency/Contador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/iesfranciscodelosrios/currency/Contador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/iesfranciscodelosrios/currency/ContadorTotal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/iesfranciscodelosrios/currency/ContadorTotal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/iesfranciscodelosrios/currency/Productor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/iesfranciscodelosrios/currency/Productor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/es/iesfranciscodelosrios/secondary.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/es/iesfranciscodelosrios/secondary.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,12 +42,16 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm"
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -63,6 +65,7 @@
       <workItem from="1673512939424" duration="216000" />
       <workItem from="1673513171386" duration="3737000" />
       <workItem from="1673546163781" duration="4570000" />
+      <workItem from="1673565978415" duration="4106000" />
     </task>
     <servers />
   </component>
