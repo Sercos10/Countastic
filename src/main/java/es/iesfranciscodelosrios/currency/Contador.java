@@ -1,6 +1,7 @@
 package es.iesfranciscodelosrios.currency;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Contador extends Thread{
     private int OneCent;
@@ -11,37 +12,19 @@ public class Contador extends Thread{
     private int FiftyCent;
     private int OneEuro;
     private int TwoEuro;
+    private int cuentaParcial;
     private Productor pro;
     private ContadorTotal contTotal;
     private ArrayList<Integer> Monedas;
+    private Object cand;
 
-    private Contador(Productor p, ContadorTotal ct){
+    private Contador(Productor p, ContadorTotal ct, Object candado){
         this.pro=p;
         this.contTotal=ct;
         Monedas= new ArrayList<>();
+        this.cand=candado;
     }
-
-    public void CuentaMoneda(int moneda){
-        switch (moneda){
-            case 1: OneCent++;
-                break;
-            case 2: TenCent++;
-                break;
-            case 5: FiveCent++;
-                break;
-            case 10: TenCent++;
-                break;
-            case 20: TwentyCent++;
-                break;
-            case 50: FiftyCent++;
-                break;
-            case 100: OneEuro++;
-                break;
-            case 200: TwoEuro++;
-                break;
-        }
-    }
-
+    
     public int getOneCent() {
         return OneCent;
     }
@@ -86,9 +69,50 @@ public class Contador extends Thread{
         return Monedas;
     }
 
+    public void CuentaMoneda(int moneda){
+        switch (moneda){
+            case 1: 
+            		Monedas.add(0, OneCent++);
+            		break;
+            case 2: 
+            		Monedas.add(1, TwoCent++);
+            		break;
+            case 5: 
+            		Monedas.add(2, FiveCent++);
+                	break;
+            case 10: 
+            		Monedas.add(3, TenCent++);
+            		break;
+            case 20: 
+            		Monedas.add(4, TwentyCent++);
+            		break;
+            case 50:
+            		Monedas.add(5, FiftyCent++);
+                	break;
+            case 100: 
+            		Monedas.add(6, OneEuro++);
+                	break;
+            case 200: 
+            		Monedas.add(7, TwoEuro++);
+            		break;
+        }
+    }
+
     @Override
     public void run() {
-        CuentaMoneda(pro.cogerMoneda());
-        contTotal.IncrementarDine(Monedas);
+        pro.start();
+        try {
+            Random randomGenerator=new Random();
+            while(pro.getnMonedas()>0){
+                int tipo =randomGenerator.nextInt(1000) + 500;
+                cand.wait();
+                CuentaMoneda(pro.getBuffer());
+                cuentaParcial= pro.getBuffer();
+                Thread.sleep(tipo);
+                cand.notifyAll();
+            }
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
