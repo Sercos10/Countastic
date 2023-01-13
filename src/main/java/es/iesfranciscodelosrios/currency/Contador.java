@@ -1,11 +1,14 @@
 package es.iesfranciscodelosrios.currency;
 
+import javafx.beans.property.SimpleIntegerProperty;
+
 import java.util.ArrayList;
 import java.util.Random;
 
 public class Contador extends Thread{
     private int OneCent;
     private int TwoCent;
+    //SimpleIntegerProperty;
     private int FiveCent;
     private int TenCent;
     private int TwentyCent;
@@ -18,10 +21,18 @@ public class Contador extends Thread{
     private ArrayList<Integer> Monedas;
     private Object cand;
 
-    private Contador(Productor p, ContadorTotal ct, Object candado){
+    public Contador(Productor p, ContadorTotal ct, Object candado){
         this.pro=p;
         this.contTotal=ct;
-        Monedas= new ArrayList<>();
+        Monedas= new ArrayList<>(8);
+        Monedas.add(0);
+        Monedas.add(0);
+        Monedas.add(0);
+        Monedas.add(0);
+        Monedas.add(0);
+        Monedas.add(0);
+        Monedas.add(0);
+        Monedas.add(0);
         this.cand=candado;
     }
     
@@ -75,7 +86,7 @@ public class Contador extends Thread{
             		Monedas.add(0, OneCent++);
             		break;
             case 2: 
-            		Monedas.add(1, TenCent++);
+            		Monedas.add(1, TwoCent++);
             		break;
             case 5: 
             		Monedas.add(2, FiveCent++);
@@ -102,15 +113,21 @@ public class Contador extends Thread{
     public void run() {
         pro.start();
         try {
-            Random randomGenerator=new Random();
             while(pro.getnMonedas()>0){
-                int tipo =randomGenerator.nextInt(1000) + 500;
-                cand.wait();
+                synchronized (cand){
+                    System.out.println("Consumidor: a mimir");
+                    cand.wait();
+                }
+                System.out.println("Consumidor: Coge moneda");
                 CuentaMoneda(pro.getBuffer());
                 cuentaParcial= pro.getBuffer();
-                Thread.sleep(tipo);
-                cand.notifyAll();
+                synchronized (cand){
+                    Thread.sleep(1000);
+                    System.out.println("Consumidor: notificando");
+                    cand.notifyAll();
+                }
             }
+            contTotal.incrementaDinero(getMonedas());
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
