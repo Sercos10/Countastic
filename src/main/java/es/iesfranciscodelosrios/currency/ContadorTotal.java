@@ -8,7 +8,6 @@ public class ContadorTotal {
     public ContadorTotal() {
         this.totalDine=0;
     }
-
     public ContadorTotal(int totalDine) {
         this.totalDine = totalDine;
     }
@@ -39,5 +38,6 @@ public class ContadorTotal {
         if (monedas.get(7) > 0){
             totalDine=totalDine+ monedas.get(7) * 200;
         }
+        System.out.println(totalDine);
     }
 }

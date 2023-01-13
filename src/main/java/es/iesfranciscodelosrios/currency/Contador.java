@@ -1,11 +1,14 @@
 package es.iesfranciscodelosrios.currency;
 
+import javafx.beans.property.SimpleIntegerProperty;
+
 import java.util.ArrayList;
 import java.util.Random;
 
 public class Contador extends Thread{
     private int OneCent;
     private int TwoCent;
+    //SimpleIntegerProperty;
     private int FiveCent;
     private int TenCent;
     private int TwentyCent;
@@ -110,21 +113,21 @@ public class Contador extends Thread{
     public void run() {
         pro.start();
         try {
-            Random randomGenerator=new Random();
             while(pro.getnMonedas()>0){
                 synchronized (cand){
                     System.out.println("Consumidor: a mimir");
                     cand.wait();
                 }
-                int tipo =randomGenerator.nextInt(1000) + 500;
                 System.out.println("Consumidor: Coge moneda");
                 CuentaMoneda(pro.getBuffer());
                 cuentaParcial= pro.getBuffer();
                 synchronized (cand){
+                    Thread.sleep(1000);
                     System.out.println("Consumidor: notificando");
                     cand.notifyAll();
                 }
             }
+            contTotal.incrementaDinero(getMonedas());
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
