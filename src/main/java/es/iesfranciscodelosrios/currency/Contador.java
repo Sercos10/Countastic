@@ -20,6 +20,10 @@ public class Contador extends Thread{
     private ContadorTotal contTotal;
     private ArrayList<Integer> Monedas;
     private Object cand;
+    
+    public Contador() {
+    	
+    }
 
     public Contador(Productor p, ContadorTotal ct, Object candado){
         this.pro=p;

@@ -33,7 +33,7 @@ public class Productor extends Thread{
     public synchronized int cogerMoneda(){
         if (nMonedas>0){
             Random randomGenerator=new Random();
-            int tipo =randomGenerator.nextInt(7) + 1;
+            int tipo =randomGenerator.nextInt(8) + 1;
             int moneda= 0;
             switch (tipo){
                 case 1: moneda=1;
