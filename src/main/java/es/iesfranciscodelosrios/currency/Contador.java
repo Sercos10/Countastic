@@ -2,6 +2,7 @@ package es.iesfranciscodelosrios.currency;
 
 import javafx.beans.property.SimpleIntegerProperty;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -18,8 +19,9 @@ public class Contador extends Thread{
     private int cuentaParcial;
     private Productor pro;
     private ContadorTotal contTotal;
-    private ArrayList<Integer> Monedas;
+    private Integer[] Monedas;
     private Object cand;
+    private Boolean canIEnter;
     
     public Contador() {
     	
@@ -28,15 +30,15 @@ public class Contador extends Thread{
     public Contador(Productor p, ContadorTotal ct, Object candado){
         this.pro=p;
         this.contTotal=ct;
-        Monedas= new ArrayList<>(8);
-        Monedas.add(0);
-        Monedas.add(0);
-        Monedas.add(0);
-        Monedas.add(0);
-        Monedas.add(0);
-        Monedas.add(0);
-        Monedas.add(0);
-        Monedas.add(0);
+        Monedas = new Integer[8];
+        Monedas[0]=0;
+        Monedas[1]=0;
+        Monedas[2]=0;
+        Monedas[3]=0;
+        Monedas[4]=0;
+        Monedas[5]=0;
+        Monedas[6]=0;
+        Monedas[7]=0;
         this.cand=candado;
     }
     
@@ -80,35 +82,35 @@ public class Contador extends Thread{
         return contTotal;
     }
 
-    public ArrayList<Integer> getMonedas() {
+    public Integer[] getMonedas() {
         return Monedas;
     }
 
     public void CuentaMoneda(int moneda){
         switch (moneda){
             case 1: 
-            		Monedas.add(0, OneCent++);
+            		Monedas[0]=Monedas[0]+ ++OneCent;
             		break;
-            case 2: 
-            		Monedas.add(1, TwoCent++);
+            case 2:
+                Monedas[1]=Monedas[1]+ ++TwoCent;
             		break;
-            case 5: 
-            		Monedas.add(2, FiveCent++);
+            case 5:
+                Monedas[2]=Monedas[2]+ ++FiveCent;
                 	break;
-            case 10: 
-            		Monedas.add(3, TenCent++);
+            case 10:
+                Monedas[3]=Monedas[3]+ ++TenCent;
             		break;
-            case 20: 
-            		Monedas.add(4, TwentyCent++);
+            case 20:
+                Monedas[4]=Monedas[4]+ ++TwentyCent;
             		break;
             case 50:
-            		Monedas.add(5, FiftyCent++);
+                Monedas[5]=Monedas[5]+ ++FiftyCent;
                 	break;
-            case 100: 
-            		Monedas.add(6, OneEuro++);
+            case 100:
+                Monedas[6]=Monedas[6]+ ++OneEuro;
                 	break;
-            case 200: 
-            		Monedas.add(7, TwoEuro++);
+            case 200:
+                Monedas[7]=Monedas[7]+ ++TwoEuro;
             		break;
         }
     }
@@ -131,7 +133,9 @@ public class Contador extends Thread{
                     cand.notifyAll();
                 }
             }
-            contTotal.incrementaDinero(getMonedas());
+                if (contTotal.getBusy()==false){
+                    contTotal.incrementaDinero(getMonedas());
+                }
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }

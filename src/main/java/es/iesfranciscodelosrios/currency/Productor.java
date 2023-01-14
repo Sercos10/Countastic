@@ -62,7 +62,6 @@ public class Productor extends Thread{
     @Override
     public void run() {
         try {
-            Random randomGenerator=new Random();
             while(nMonedas>0){
                 System.out.println("Productor: Produciendo moneda");
                 buffer=cogerMoneda();
