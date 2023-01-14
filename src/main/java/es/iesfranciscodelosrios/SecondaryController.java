@@ -13,7 +13,7 @@ import javafx.scene.control.Label;
 public class SecondaryController implements Initializable {
 	
 	@FXML
-	private Label oneCents;
+	private Label oneCent;
 	
 	@FXML
 	private Label twoCents;
@@ -46,7 +46,7 @@ public class SecondaryController implements Initializable {
 	public void startProgram() {
 		try {
 			ContadorTotal ct= new ContadorTotal();
-	        int monedas= 60/3;
+	        int monedas= 99/3;
 	        Object candado1= new Object();
 	        Object candado2= new Object();
 	        Object candado3= new Object();
@@ -62,6 +62,15 @@ public class SecondaryController implements Initializable {
 	        c1.join();
 	        c2.join();
 	        c3.join();
+	       
+	        oneCent.setText(String.valueOf(c1.getOneCent() + c2.getOneCent() + c3.getOneCent()));
+	        twoCents.setText(String.valueOf(c1.getTwoCent() + c2.getTwoCent() + c3.getTwoCent()));
+	        fiveCents.setText(String.valueOf(c1.getFiveCent() + c2.getFiveCent() + c3.getFiveCent()));
+	        tenCents.setText(String.valueOf(c1.getTenCent() + c2.getTenCent() + c3.getTenCent()));
+	        twentyCents.setText(String.valueOf(c1.getTwentyCent() + c2.getTwentyCent() + c3.getTwentyCent()));
+	        fiftyCents.setText(String.valueOf(c1.getFiftyCent() + c2.getFiftyCent() + c3.getFiftyCent()));
+	        oneEur.setText(String.valueOf(c1.getOneEuro() + c2.getOneEuro() + c3.getOneEuro()));
+	        twoEur.setText(String.valueOf(c1.getTwoEuro() + c2.getTwoEuro() + c3.getTwoEuro()));
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -69,7 +78,7 @@ public class SecondaryController implements Initializable {
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		oneCents.setText("0");
+		oneCent.setText("0");
 		twoCents.setText("0");
 		fiveCents.setText("0");
 		tenCents.setText("0");
