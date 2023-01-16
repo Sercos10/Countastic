@@ -53,7 +53,6 @@ public class Productor extends Thread{
                 case 8: moneda=200;
                     break;
             }
-            nMonedas--;
             return moneda;
         }
         return 0;
@@ -70,6 +69,7 @@ public class Productor extends Thread{
                     System.out.println("Productor: notificando a consumidor");
                     cand.notifyAll();
                     System.out.println("Productor: a mimir");
+                    nMonedas--;
                     cand.wait();
                 }
             }
