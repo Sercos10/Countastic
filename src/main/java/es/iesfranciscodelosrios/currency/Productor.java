@@ -33,7 +33,7 @@ public class Productor extends Thread{
     public synchronized int cogerMoneda(){
         if (nMonedas>0){
             Random randomGenerator=new Random();
-            int tipo =randomGenerator.nextInt(7) + 1;
+            int tipo =randomGenerator.nextInt(8) + 1;
             int moneda= 0;
             switch (tipo){
                 case 1: moneda=1;
@@ -53,7 +53,6 @@ public class Productor extends Thread{
                 case 8: moneda=200;
                     break;
             }
-            nMonedas--;
             return moneda;
         }
         return 0;
@@ -62,18 +61,17 @@ public class Productor extends Thread{
     @Override
     public void run() {
         try {
-            Random randomGenerator=new Random();
             while(nMonedas>0){
-                int tipo =randomGenerator.nextInt(1000) + 500;
                 System.out.println("Productor: Produciendo moneda");
                 buffer=cogerMoneda();
                 synchronized (cand){
+                    Thread.sleep(1000);
                     System.out.println("Productor: notificando a consumidor");
                     cand.notifyAll();
                     System.out.println("Productor: a mimir");
+                    nMonedas--;
                     cand.wait();
                 }
-
             }
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
