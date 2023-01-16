@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="458df54e-8c84-4b3a-80bf-1e37342f7c9d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/iesfranciscodelosrios/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/iesfranciscodelosrios/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/iesfranciscodelosrios/SecondaryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/iesfranciscodelosrios/SecondaryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/iesfranciscodelosrios/currency/Contador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/iesfranciscodelosrios/currency/Contador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/iesfranciscodelosrios/currency/ContadorTotal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/iesfranciscodelosrios/currency/ContadorTotal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/iesfranciscodelosrios/currency/Productor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/iesfranciscodelosrios/currency/Productor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/es/iesfranciscodelosrios/secondary.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/es/iesfranciscodelosrios/secondary.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Tests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Tests.java" afterDir="false" />
-    </list>
+    <list default="true" id="458df54e-8c84-4b3a-80bf-1e37342f7c9d" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -51,7 +41,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "terminal"
@@ -121,6 +111,7 @@
       <workItem from="1673710281830" duration="4652000" />
       <workItem from="1673861773388" duration="4703000" />
       <workItem from="1673875523474" duration="292000" />
+      <workItem from="1673899475152" duration="110000" />
     </task>
     <servers />
   </component>
