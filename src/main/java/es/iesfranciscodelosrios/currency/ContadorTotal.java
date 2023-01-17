@@ -1,7 +1,5 @@
 package es.iesfranciscodelosrios.currency;
 
-import java.util.ArrayList;
-
 public class ContadorTotal {
     private int totalDine;
     private Boolean isBusy;
@@ -31,6 +29,10 @@ public class ContadorTotal {
         isBusy = busy;
     }
 
+    /**
+     * Recibe un array de monedas para sumar todas las monedas mostrar el total de todas estas
+     * @param monedas array de monedas de los hilos contadores
+     */
     public synchronized void incrementaDinero(Integer[] monedas){
         this.isBusy=true;
         if (monedas[0] > 0){

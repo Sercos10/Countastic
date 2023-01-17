@@ -1,11 +1,5 @@
 package es.iesfranciscodelosrios.currency;
 
-import javafx.beans.property.SimpleIntegerProperty;
-
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Random;
-
 public class Contador extends Thread{
     private int OneCent;
     private int TwoCent;
@@ -27,6 +21,12 @@ public class Contador extends Thread{
     	
     }
 
+    /**
+     * Constructor del hilo contador
+     * @param p el hilo productor al que se le va a asociar para realizar la sincronización
+     * @param ct el objeto donde se va a guardar el dinero
+     * @param candado el objeto Object que se va a utilizar de candado para sincronizar productor y consumidor
+     */
     public Contador(Productor p, ContadorTotal ct, Object candado){
         this.pro=p;
         this.contTotal=ct;
@@ -41,7 +41,8 @@ public class Contador extends Thread{
         Monedas[7]=0;
         this.cand=candado;
     }
-    
+
+    //A partir de aquí son getter y setters
     public int getOneCent() {
         return OneCent;
     }
@@ -94,6 +95,11 @@ public class Contador extends Thread{
         this.cuentaParcial = cuentaParcial;
     }
 
+    /**
+     * Metodo en el cual recoge la moneda que le pasa el productor y la añade a la posición indicada
+     * para después contabilizarla de manera adecuada
+     * @param moneda la moneda que le pasa el productor
+     */
     public void CuentaMoneda(int moneda){
         switch (moneda){
             case 1: 
@@ -132,11 +138,12 @@ public class Contador extends Thread{
         }
     }
 
-    public void asignarMonedas(){
-        Monedas[0]=this.OneCent;
-        Monedas[1]=this.TwoCent;
-    }
-
+    /**
+     * Nada más iniciar el hilo inicia el productor y se pone a la espera
+     * cuando el productor termina su ejecución lo notifica y guarda la moneda en el array
+     * por consiguiente notifica al productor de que ha terminado su ejecución y se pone a dormir
+     * Toda esta ejecución se realiza mientras el productor tenga monedas
+     */
     @Override
     public void run() {
         pro.start();
