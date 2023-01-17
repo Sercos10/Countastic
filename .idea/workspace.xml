@@ -8,6 +8,7 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/es/iesfranciscodelosrios/currency/Contador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/iesfranciscodelosrios/currency/Contador.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/es/iesfranciscodelosrios/currency/Productor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/iesfranciscodelosrios/currency/Productor.java" afterDir="false" />
     </list>
+    <list default="true" id="458df54e-8c84-4b3a-80bf-1e37342f7c9d" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -48,6 +49,22 @@
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;terminal&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/sergi/IdeaProjects/RomperLaHucha - copia",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "terminal"
   }
 }</component>
   <component name="RunManager" selected="Application.App">
@@ -114,6 +131,7 @@
       <workItem from="1673710281830" duration="4652000" />
       <workItem from="1673861773388" duration="4703000" />
       <workItem from="1673875523474" duration="292000" />
+      <workItem from="1673899475152" duration="110000" />
     </task>
     <servers />
   </component>
