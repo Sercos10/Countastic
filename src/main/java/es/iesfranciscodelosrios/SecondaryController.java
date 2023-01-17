@@ -55,6 +55,10 @@ public class SecondaryController implements Initializable, Runnable {
 	Contador c2 = new Contador(p2,ct,candado2);
 	Contador c3 = new Contador(p3,ct,candado3);
 	private Boolean started=false;
+
+	/**
+	 * Inicia los contadorse y el Thread para refrescar los label a la misma vez que trabajan los hilos
+	 */
 	@FXML
 	public void startCount() {
 		try {
@@ -69,6 +73,11 @@ public class SecondaryController implements Initializable, Runnable {
 		}
 	}
 
+	/**
+	 * Inicializa los label a 0 y totalCoins a la suma de las monedas de los productores
+	 * @param location
+	 * @param resources
+	 */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		oneCent.setText("0");
@@ -83,6 +92,9 @@ public class SecondaryController implements Initializable, Runnable {
 		totalCount.setText("0");
 	}
 
+	/**
+	 * Espera a que terminen de trabajar los hilos y después hace la total y la muestra por pantalla
+	 */
 	@FXML
 	public void contarMoneda(){
 		try {
@@ -100,6 +112,10 @@ public class SecondaryController implements Initializable, Runnable {
 
 	}
 
+	/**
+	 * Mientras que los hilos estén en ejecución refresca los label con el numero de monedas de cada tipo que poseen
+	 * en total todos los hilos en ese momento
+	 */
 	@Override
 	public void run() {
 		while(started) {
