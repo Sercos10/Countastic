@@ -86,33 +86,55 @@ public class Contador extends Thread{
         return Monedas;
     }
 
+    public int getCuentaParcial() {
+        return cuentaParcial;
+    }
+
+    public void setCuentaParcial(int cuentaParcial) {
+        this.cuentaParcial = cuentaParcial;
+    }
+
     public void CuentaMoneda(int moneda){
         switch (moneda){
             case 1: 
-            		Monedas[0]=Monedas[0]+ ++OneCent;
+            		Monedas[0]= ++OneCent;
+                System.out.println("1 cent");
             		break;
             case 2:
-                Monedas[1]=Monedas[1]+ ++TwoCent;
+                Monedas[1]= ++TwoCent;
+                System.out.println("2 cent");
             		break;
             case 5:
-                Monedas[2]=Monedas[2]+ ++FiveCent;
+                Monedas[2]= ++FiveCent;
+                System.out.println("5 cent");
                 	break;
             case 10:
-                Monedas[3]=Monedas[3]+ ++TenCent;
+                Monedas[3]= ++TenCent;
+                System.out.println("10 cent");
             		break;
             case 20:
-                Monedas[4]=Monedas[4]+ ++TwentyCent;
+                Monedas[4]= ++TwentyCent;
+                System.out.println("20 cent");
             		break;
             case 50:
-                Monedas[5]=Monedas[5]+ ++FiftyCent;
+                Monedas[5]= ++FiftyCent;
+                System.out.println("50 cent");
                 	break;
             case 100:
-                Monedas[6]=Monedas[6]+ ++OneEuro;
+                Monedas[6]= ++OneEuro;
+                System.out.println("100 cent");
                 	break;
             case 200:
-                Monedas[7]=Monedas[7]+ ++TwoEuro;
+                Monedas[7]= ++TwoEuro;
+                System.out.println("200 cent");
             		break;
+            default: break;
         }
+    }
+
+    public void asignarMonedas(){
+        Monedas[0]=this.OneCent;
+        Monedas[1]=this.TwoCent;
     }
 
     @Override
@@ -121,21 +143,15 @@ public class Contador extends Thread{
         try {
             while(pro.getnMonedas()>0){
                 synchronized (cand){
-                    System.out.println("Consumidor: a mimir");
                     cand.wait();
                 }
-                System.out.println("Consumidor: Coge moneda");
                 CuentaMoneda(pro.getBuffer());
                 cuentaParcial= pro.getBuffer();
                 synchronized (cand){
                     Thread.sleep(1000);
-                    System.out.println("Consumidor: notificando");
                     cand.notifyAll();
                 }
             }
-                if (contTotal.getBusy()==false){
-                    contTotal.incrementaDinero(getMonedas());
-                }
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }

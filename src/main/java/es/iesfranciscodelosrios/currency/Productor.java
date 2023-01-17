@@ -52,6 +52,7 @@ public class Productor extends Thread{
                     break;
                 case 8: moneda=200;
                     break;
+                default:break;
             }
             return moneda;
         }
@@ -62,13 +63,10 @@ public class Productor extends Thread{
     public void run() {
         try {
             while(nMonedas>0){
-                System.out.println("Productor: Produciendo moneda");
                 buffer=cogerMoneda();
                 synchronized (cand){
                     Thread.sleep(1000);
-                    System.out.println("Productor: notificando a consumidor");
                     cand.notifyAll();
-                    System.out.println("Productor: a mimir");
                     nMonedas--;
                     cand.wait();
                 }

@@ -44,7 +44,7 @@ public class SecondaryController implements Initializable, Runnable {
 	private Label totalCount;
 
 	ContadorTotal ct= new ContadorTotal();
-	int monedas= 6/3;
+	int monedas= 48/3;
 	Object candado1= new Object();
 	Object candado2= new Object();
 	Object candado3= new Object();
@@ -54,21 +54,17 @@ public class SecondaryController implements Initializable, Runnable {
 	Contador c1 = new Contador(p1,ct,candado1);
 	Contador c2 = new Contador(p2,ct,candado2);
 	Contador c3 = new Contador(p3,ct,candado3);
-	boolean started;
-
+	private Boolean started=false;
 	@FXML
-	public void startProgram() {
+	public void startCount() {
 		try {
-			started = true;
+			started=true;
 			Thread th = new Thread(this);
 			th.start();
 			c1.start();
 			c2.start();
 			c3.start();
-			c1.join();
-			c2.join();
-			c3.join();
-		} catch (InterruptedException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
@@ -83,8 +79,25 @@ public class SecondaryController implements Initializable, Runnable {
 		fiftyCents.setText("0");
 		oneEur.setText("0");
 		twoEur.setText("0");
-		totalCoins.setText("99");
+		totalCoins.setText(String.valueOf(p1.getnMonedas()+p2.getnMonedas()+p3.getnMonedas()));
 		totalCount.setText("0");
+	}
+
+	@FXML
+	public void contarMoneda(){
+		try {
+			c1.join();
+			c2.join();
+			c3.join();
+			started=false;
+			ct.incrementaDinero(c1.getMonedas());
+			ct.incrementaDinero(c2.getMonedas());
+			ct.incrementaDinero(c3.getMonedas());
+			totalCount.setText(String.valueOf((float)ct.getTotalDine()/100)+"€");
+		} catch (InterruptedException e) {
+			throw new RuntimeException(e);
+		}
+
 	}
 
 	@Override
@@ -92,24 +105,24 @@ public class SecondaryController implements Initializable, Runnable {
 		while(started) {
 			try {
 				Thread.sleep(1000);
-				//System.out.println("Hola");
 				Platform.runLater(new Runnable() {
 					@Override
 					public void run() {
-						oneCent.setText(String.valueOf(c1.getOneCent() + c2.getOneCent() + c3.getOneCent()));
-						twoCents.setText(String.valueOf(c1.getTwoCent() + c2.getTwoCent() + c3.getTwoCent()));
-						fiveCents.setText(String.valueOf(c1.getFiveCent() + c2.getFiveCent() + c3.getFiveCent()));
-						tenCents.setText(String.valueOf(c1.getTenCent() + c2.getTenCent() + c3.getTenCent()));
-						twentyCents.setText(String.valueOf(c1.getTwentyCent() + c2.getTwentyCent() + c3.getTwentyCent()));
-						fiftyCents.setText(String.valueOf(c1.getFiftyCent() + c2.getFiftyCent() + c3.getFiftyCent()));
-						oneEur.setText(String.valueOf(c1.getOneEuro() + c2.getOneEuro() + c3.getOneEuro()));
-						twoEur.setText(String.valueOf(c1.getTwoEuro() + c2.getTwoEuro() + c3.getTwoEuro()));
+						oneCent.setText(String.valueOf(c1.getMonedas()[0] + c2.getMonedas()[0] + c3.getMonedas()[0]));
+						twoCents.setText(String.valueOf(c1.getMonedas()[1] + c2.getMonedas()[1] + c3.getMonedas()[1]));
+						fiveCents.setText(String.valueOf(c1.getMonedas()[2] + c2.getMonedas()[2] + c3.getMonedas()[2]));
+						tenCents.setText(String.valueOf(c1.getMonedas()[3] + c2.getMonedas()[3] + c3.getMonedas()[3]));
+						twentyCents.setText(String.valueOf(c1.getMonedas()[4] + c2.getMonedas()[4] + c3.getMonedas()[4]));
+						fiftyCents.setText(String.valueOf(c1.getMonedas()[5] + c2.getMonedas()[5] + c3.getMonedas()[5]));
+						oneEur.setText(String.valueOf(c1.getMonedas()[6] + c2.getMonedas()[6] + c3.getMonedas()[6]));
+						twoEur.setText(String.valueOf(c1.getMonedas()[7] + c2.getMonedas()[7] + c3.getMonedas()[7]));
+						totalCoins.setText(String.valueOf(p1.getnMonedas()+p2.getnMonedas()+p3.getnMonedas()));
 					}
 				});
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-
 		}
 	}
+
 }
