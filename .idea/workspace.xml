@@ -5,8 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="458df54e-8c84-4b3a-80bf-1e37342f7c9d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/iesfranciscodelosrios/currency/Contador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/iesfranciscodelosrios/currency/Contador.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/iesfranciscodelosrios/currency/Consumidor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/iesfranciscodelosrios/currency/Hucha.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/iesfranciscodelosrios/SecondaryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/iesfranciscodelosrios/SecondaryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/iesfranciscodelosrios/currency/Contador.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/es/iesfranciscodelosrios/currency/Productor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/iesfranciscodelosrios/currency/Productor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Tests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Tests.java" afterDir="false" />
     </list>
     <list default="true" id="458df54e-8c84-4b3a-80bf-1e37342f7c9d" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -131,6 +136,7 @@
       <workItem from="1673710281830" duration="4652000" />
       <workItem from="1673861773388" duration="4703000" />
       <workItem from="1673875523474" duration="292000" />
+      <workItem from="1674068779862" duration="5902000" />
       <workItem from="1673899475152" duration="110000" />
     </task>
     <servers />
