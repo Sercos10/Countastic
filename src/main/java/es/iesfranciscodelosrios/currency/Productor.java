@@ -32,7 +32,7 @@ public class Productor extends Thread{
     public void run() {
         try {
             while(hucha.getnMonedas()>0){
-                buffer=hucha.cogerMoneda();
+                hucha.cogerMoneda();
                 synchronized (cand){
                     Thread.sleep(500);
                     cand.notifyAll();
